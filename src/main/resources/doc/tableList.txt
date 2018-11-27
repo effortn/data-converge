@@ -1,0 +1,9 @@
+1、违法记录表 ---> BSITS2.B_KKQP_WFTC
+    查询语句：
+2、设备运维状态表 ---> B_SSSB_SBDQZTXX
+    查询语句：
+3、设备配置信息表 ---> B_SSSB_SBXX
+    查询语句：
+4、代码类型表 ---> B_QJ_DMLX
+
+5、代码表 ---> B_QJ_DMX

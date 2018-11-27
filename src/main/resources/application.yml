@@ -1,0 +1,78 @@
+converge:
+  # 平台代码：宝山 310113
+  ptdm: 310113
+  # 违法数据查询时间跨度，单位毫秒
+  query-time: 10000
+  # 过车抓拍数据的时间比当前系统时间差滞后超过指定的时间范围，暂定十分钟
+  lag-time: 600000
+  # 当违法数据上传出现问题，线程执行滞后时，会导致数据一致不实时，因此需要一个滞后量来保证上传线程执行的实时性，暂定5分钟
+  new-thread-lag-time: 300000
+  # 补传数据查询时间上限和下限的最大差
+  max-interval: 300000
+  # 字典转换关系
+  code-convert-map:
+    # 号牌种类代码转换对应的文件路径
+    hpzl: E:\kafka数据汇聚\data-converge\src\main\resources\code\hpzl
+    # 号牌颜色代码转换对应的文件路径
+    hpys: E:\kafka数据汇聚\data-converge\src\main\resources\code\hpys
+    # 车身颜色代码转换对应的文件路径
+    csys: E:\kafka数据汇聚\data-converge\src\main\resources\code\csys
+    # 车辆类型代码转换对应的文件路径
+    cllx:
+    # 车标类型代码转换对应的文件路径
+    cblx:
+    # 违法类型代码转换对应的文件路径
+    wflx:
+    # 断面方向代码转换对应的文件路径
+    dmfx: E:\kafka数据汇聚\data-converge\src\main\resources\code\dmfx
+topic:
+  produce:
+    # 违法数据
+    #1 实时违法数据topic				#生产者
+    wf: data-wf-310113
+    #3 历史补传违法数据topic			#生产者
+    wf-ls: data-wf-ls-310113
+    #2 区系统回复中心平台补传指令topic		#生产者
+    fix-fk: man-fix-fk-310113
+    #2 区系统回复中心平台获取设备配置数据topic		#生产者
+    device-config-fk: man-device-config-fk-310113
+    #2 区系统回复中心平台设备运维状态topic			#生产者
+    device-status-fk: man-device-status-fk-310113
+    #2 区系统回复中心FTP连接信息topic				#生产者
+    ftp-fk: man-ftp-fk-310113
+    # 所有程序对应的生产者的topicName，用","连接
+    topics: data-wf-310113,data-wf-ls-310113,man-fix-fk-310113,man-device-config-fk-310113,man-device-status-fk-310113,man-ftp-fk-310113
+  consume:
+    #2 实时违法回执数据topic			#消费者
+    wfrsp: data-wfrsp-310113
+    #4 历史补传违法回执数据topic		#消费者
+    wfrsp-ls: data-wfrsp-ls-310113
+    # 中心检查-补传服务
+    #1 中心平台请求区系统补传数据topic		#消费者
+    fix: man-fix-310113
+    # 设备配置数据
+    #1 中心平台请求区系统获取设备配置数据topic		#消费者
+    device-config: man-device-config-310113
+    # 设备运维状态数据
+    #1 中心平台请求区系统获取运维状态topic			#消费者
+    device-status: man-device-status-310113
+    # FTP服务器连接信息数据
+    #1 中心写入区系统FTP服务器连接信息topic		#消费者
+    ftp: man-ftp-310113
+    # 所有程序对应的消费者的topicName，用","连接
+    topics: data-wfrsp-310113,data-wfrsp-ls-310113,man-fix-310113,man-device-config-310113,man-device-status-310113,man-ftp-310113
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@15.193.248.54:1521:snapall
+    username: bsits2
+    password: xiling@2015
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+logging:
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss
+server:
+  port: 8090
