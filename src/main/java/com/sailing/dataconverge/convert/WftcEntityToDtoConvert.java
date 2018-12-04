@@ -55,7 +55,9 @@ public class WftcEntityToDtoConvert {
 //        wfsjDto.setSbsj(wf.ge);   // 识别时间
 //        wfsjDto.setHpjg();        // 号牌结构
         wfsjDto.setWflx(0);        //违法类型,卡口过车数据填0
-        wfsjDto.setHdsj((int) Math.round(wf.getHdsj()));
+//        wfsjDto.setHdsj((int) Math.round(wf.getHdsj()));
+        wfsjDto.setHdsj(0);         // 红灯时间固定写死为0 （数据库中为行政区划）
+
         // 图片，录像 在service 中进行处理
 //        wfsjDto.setTpsl((int) Math.ceil(wf.getTpsl()));
 //        wfsjDto.setTpdx();
