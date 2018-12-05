@@ -39,7 +39,7 @@ public class FtpUtils {
     private final static String KEY_FORMAT = "%s:%d-%s";
 
     // 图片在ftp上的地址
-    private final static String FTP_URL = "ftp://%s/%s";
+    private final static String FTP_URL = "ftp://%s:%s@%s/%s";
 
     private final static String HOST = "15.32.12.142";
     private final static Integer PORT = 21;
@@ -236,7 +236,7 @@ public class FtpUtils {
             ftpClient.storeFile(fileName, inputStream);
             String host = key.split("-")[0];
             String file = pathname + "/" + fileName;
-            flag = String.format(FTP_URL, host, file);
+            flag = String.format(FTP_URL, USER, PASSWORD, host, file);
             log.debug("【FTP】上传文件成功");
         }catch (Exception e) {
             e.printStackTrace();

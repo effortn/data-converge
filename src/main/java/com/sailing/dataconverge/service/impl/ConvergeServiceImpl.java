@@ -159,6 +159,8 @@ public class ConvergeServiceImpl implements ConvergeService {
                             // 3-5. 设置图片地址
                             wfsjDto.setTpzxdz(tpzxdz);
                             wfsjDto.setTpqdz(tpqdz);
+                            wfsjDto.setTplx(tplx);
+
                             // 4. 设置断面描述
                             wfsjDto.setDmms(sbxx.get().getSbmc());
                             return wfsjDto;

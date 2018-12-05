@@ -12,11 +12,11 @@ converge:
   # 字典转换关系
   code-convert-map:
     # 号牌种类代码转换对应的文件路径
-    hpzl: E:\kafka数据汇聚\data-converge\src\main\resources\code\hpzl
+    hpzl: ./code/hpzl
     # 号牌颜色代码转换对应的文件路径
-    hpys: E:\kafka数据汇聚\data-converge\src\main\resources\code\hpys
+    hpys: ./code/hpys
     # 车身颜色代码转换对应的文件路径
-    csys: E:\kafka数据汇聚\data-converge\src\main\resources\code\csys
+    csys: ./code/csys
     # 车辆类型代码转换对应的文件路径
     cllx:
     # 车标类型代码转换对应的文件路径
@@ -24,7 +24,7 @@ converge:
     # 违法类型代码转换对应的文件路径
     wflx:
     # 断面方向代码转换对应的文件路径
-    dmfx: E:\kafka数据汇聚\data-converge\src\main\resources\code\dmfx
+    dmfx: ./code/dmfx
 topic:
   produce:
     # 违法数据
