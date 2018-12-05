@@ -136,14 +136,18 @@ public class ConvergeServiceImpl implements ConvergeService {
                                     String fileName = tpid + "_" + (i + 1) + ".jpg";
                                     // FTP上传图片并获取图片的保存地址
                                     String fileUrl = FtpUtils.uploadNetFile(tpPath, fileName, tpdz);
+                                    // 设置图片地址
+                                    tpqdz = tpqdz.concat(tpdz);
+                                    tplx = tplx + i;
+                                    if (i < tpsl - 1) {
+                                        tpqdz = tpqdz.concat(",");
+                                        tplx = tplx.concat(",");
+                                    }
                                     if (fileUrl != null) {
                                         tpzxdz = tpzxdz.concat(fileUrl);
-                                        tpqdz = tpqdz.concat(tpdz);
-                                        tplx = tplx + i;
                                         if (i < tpsl - 1) {
                                             tpqdz = tpqdz.concat(",");
                                             tpzxdz = tpzxdz.concat(",");
-                                            tplx = tplx.concat(",");
                                         }
                                     }
                                 } catch (Exception e) {
